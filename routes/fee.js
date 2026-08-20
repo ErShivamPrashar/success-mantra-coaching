@@ -2,7 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
-// const nodemailer = require("nodemailer");
+
 const Resend  = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -123,16 +123,7 @@ const upload = multer({
 // EMAIL
 // =====================================================
 
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
 
-    auth: {
-        user: process.env.ADMIN_EMAIL,
-        pass: process.env.ADMIN_PASS
-    }
-});
 
 
 // =====================================================

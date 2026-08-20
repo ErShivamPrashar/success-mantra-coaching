@@ -1,5 +1,4 @@
 const express = require("express");
-// const nodemailer = require("nodemailer");
 
 const  Resend  = require("resend");
 
@@ -16,16 +15,7 @@ const router = express.Router();
 // EMAIL SETUP
 // ==========================================
 
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
 
-    auth: {
-        user: process.env.ADMIN_EMAIL,
-        pass: process.env.ADMIN_PASS
-    }
-});
 
 // ==========================================
 // ADMIN DASHBOARD
