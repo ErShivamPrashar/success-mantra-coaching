@@ -3,7 +3,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 // const nodemailer = require("nodemailer");
-const { Resend } = require("resend");
+const Resend  = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FeePayment = require("../model/fee");
