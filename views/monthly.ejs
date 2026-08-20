@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Monthly Fee Payment | Success Mantra Coaching
+    </title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
+
+
+        .page {
+            min-height: 100vh;
+            padding: 35px 15px;
+        }
+
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+
+        .header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+
+        .header p {
+            color: #666;
+        }
+
+
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.07);
+        }
+
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 22px;
+        }
+
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+
+        input,
+        select {
+
+            width: 100%;
+            height: 48px;
+
+            padding: 0 14px;
+
+            border: 1px solid #ddd;
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            background: #fff;
+        }
+
+
+        input:focus,
+        select:focus {
+            border-color: #222;
+        }
+
+
+        input[readonly] {
+            background: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+
+        .help {
+            color: #777;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+
+        .fee-info {
+            margin-top: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+
+        .fee-row {
+
+            display: flex;
+            justify-content: space-between;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid #eee;
+        }
+
+
+        .fine {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: none;
+        }
+
+
+        .total-amount {
+            font-size: 24px;
+        }
+
+
+        .rule {
+
+            margin-top: 18px;
+
+            padding: 15px;
+
+            background: #fff8e1;
+
+            border: 1px solid #ffe082;
+
+            border-radius: 10px;
+
+            color: #795548;
+
+            line-height: 1.6;
+        }
+
+
+        .qr-section {
+            text-align: center;
+        }
+
+
+        .qr-code {
+
+            width: 230px;
+            height: 230px;
+
+            object-fit: contain;
+
+            border: 1px solid #eee;
+
+            border-radius: 12px;
+
+            padding: 8px;
+
+            margin: 15px auto;
+
+            display: block;
+        }
+
+
+        .pay-amount {
+            font-size: 28px;
+            margin-top: 10px;
+        }
+
+
+        .upi-text {
+            color: #666;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+
+        .submit-btn {
+
+            width: 100%;
+
+            height: 52px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #111;
+
+            color: #fff;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 10px;
+        }
+
+
+        .submit-btn:hover {
+            opacity: .9;
+        }
+
+
+        .note {
+
+            margin-top: 15px;
+
+            padding: 14px;
+
+            background: #f8f8f8;
+
+            border-radius: 8px;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        .error {
+
+            background: #ffebee;
+
+            color: #c62828;
+
+            border: 1px solid #ffcdd2;
+
+            padding: 14px;
+
+            border-radius: 8px;
+
+            margin-bottom: 20px;
+        }
+
+
+        @media(max-width:600px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .full {
+                grid-column: auto;
+            }
+
+
+            .card {
+                padding: 20px;
+            }
+
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <div class="header">
+
+            <h1>
+                Monthly Fee Payment
+            </h1>
+
+            <p>
+                मासिक शुल्क भुगतान
+            </p>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <% if (typeof error !== "undefined" && error) { %>
+
+            <div class="error">
+                <%= error %>
+            </div>
+
+        <% } %>
+
+
+
+        <!-- MAIN FORM -->
+
+        <div class="card">
+
+
+            <h2 class="title">
+
+                Student Details /
+                विद्यार्थी विवरण
+
+            </h2>
+
+
+            <form
+                action="/fee/payment"
+                method="POST"
+                enctype="multipart/form-data"
+                id="feeForm"
+            >
+
+
+                <div class="form-grid">
+
+
+                    <!-- STUDENT NAME -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Student Name /
+                            विद्यार्थी का नाम
+                        </label>
+
+                        <input
+                            type="text"
+                            name="studentName"
+                            placeholder="Enter Student Name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- REGISTRATION NUMBER -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Registration Number /
+                            पंजीकरण संख्या
+                        </label>
+
+                        <input
+                            type="text"
+                            name="registrationNumber"
+                            placeholder="Enter Registration Number"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- CLASS -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Class / कक्षा
+                        </label>
+
+                        <select
+                            name="className"
+                            required
+                        >
+
+                            <option value="">
+                                Select Class / कक्षा चुनें
+                            </option>
+
+                               <option value="Class 7">
+                                Class 7
+                            </option>
+
+                               <option value="Class 8">
+                                Class 8
+                            </option>
+
+                            <option value="Class 9">
+                                Class 9
+                            </option>
+
+                            <option value="Class 10">
+                                Class 10
+                            </option>
+
+                            <option value="Class 11">
+                                Class 11
+                            </option>
+
+                            <option value="Class 12">
+                                Class 12
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- MOBILE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter email id"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- MONTH -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Fee Month / शुल्क महीना
+                        </label>
+
+                        <select
+                            name="feeMonth"
+                            id="feeMonth"
+                            required
+                        >
+
+                            <option value="">
+                                Select Month / महीना चुनें
+                            </option>
+
+                            <option value="January">
+                                January
+                            </option>
+
+                            <option value="February">
+                                February
+                            </option>
+
+                            <option value="March">
+                                March
+                            </option>
+
+                            <option value="April">
+                                April
+                            </option>
+
+                            <option value="May">
+                                May
+                            </option>
+
+                            <option value="June">
+                                June
+                            </option>
+
+                            <option value="July">
+                                July
+                            </option>
+
+                            <option value="August">
+                                August
+                            </option>
+
+                            <option value="September">
+                                September
+                            </option>
+
+                            <option value="October">
+                                October
+                            </option>
+
+                            <option value="November">
+                                November
+                            </option>
+
+                            <option value="December">
+                                December
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- FIXED FEE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Monthly Fee / मासिक शुल्क
+                        </label>
+
+                        <input
+                            type="text"
+                            id="monthlyFeeDisplay"
+                            value="₹700"
+                            readonly
+                        >
+
+                        <span class="help">
+
+                            Monthly fee coaching द्वारा निर्धारित है।
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- CALCULATION -->
+
+                <div class="fee-info">
+
+
+                    <div class="fee-row">
+
+                        <span>
+                            Monthly Fee /
+                            मासिक शुल्क
+                        </span>
+
+                        <span>
+
+                            ₹<span id="feeDisplay">0</span>
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="fee-row">
+
+                        <span>
+                            Late Fine /
+                            विलंब शुल्क
+                        </span>
+
+                        <span
+                            id="fineDisplay"
+                            class="fine"
+                        >
+                            ₹0
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="fee-row total">
+
+                        <span>
+                            Total Payable /
+                            कुल भुगतान
+                        </span>
+
+                        <span class="total-amount">
+
+                            ₹<span id="totalDisplay">0</span>
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- RULE -->
+
+                <div class="rule">
+
+                    <strong>
+                        Important Payment Rule /
+                        महत्वपूर्ण भुगतान नियम
+                    </strong>
+
+                    <br><br>
+
+                    Monthly Fee:
+                    <strong>₹700</strong>
+
+                    <br>
+
+                    1 से 10 तारीख तक payment:
+                    <strong>₹700</strong>
+
+                    <br>
+
+                    10 तारीख के बाद payment:
+                    <strong>₹800</strong>
+
+                    <br><br>
+
+                    ⚠️ निर्धारित राशि से कम payment
+                    होने पर payment
+                    <strong>अमान्य</strong>
+                    माना जाएगा।
+
+                </div>
+
+
+
+                <!-- PAYMENT SECTION -->
+
+                <div
+                    class="card"
+                    style="
+                        margin-top:25px;
+                        padding:20px;
+                        box-shadow:none;
+                        border:1px solid #eee;
+                    "
+                >
+
+                    <div class="qr-section">
+                        
+                
+                        <h2 class="title">
+                            Payment / भुगतान करें
+                        </h2>
+
+
+                        <p>
+                            पहले ऊपर अपना month select करें।
+                        </p>
+
+
+                        <img
+                            src="/images/pay.jpeg"
+                            alt="Payment QR Code"
+                            class="qr-code"
+                        >
+
+
+                        <p>
+                            Pay Exactly
+                        </p>
+
+
+                        <div class="pay-amount">
+
+                            <strong>
+
+                                ₹<span id="qrAmount">
+                                    0
+                                </span>
+
+                            </strong>
+
+                        </div>
+
+
+                        <p class="upi-text">
+
+                            QR Scan करके ऊपर दिखाई गई
+                            exact amount का payment करें।
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- UTR -->
+
+                    <div
+                        class="form-group"
+                        style="margin-top:25px;"
+                    >
+
+                        <label>
+                            UTR / Transaction Number
+                        </label>
+
+                        <input
+                            type="text"
+                            name="utrNumber"
+                            placeholder="Enter UTR Number"
+                            required
+                        >
+
+                        <span class="help">
+
+                            Payment के बाद प्राप्त
+                            UTR Number डालें।
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- PAYMENT METHOD -->
+
+                    <div
+                        class="form-group"
+                        style="margin-top:18px;"
+                    >
+
+                        <label>
+                            Payment Method /
+                            भुगतान माध्यम
+                        </label>
+
+                        <select
+                            name="paymentMethod"
+                            required
+                        >
+
+                            <option value="">
+                                Select Payment Method
+                            </option>
+
+                            <option value="UPI">
+                                UPI
+                            </option>
+
+                            <option value="PhonePe">
+                                PhonePe
+                            </option>
+
+                            <option value="Google Pay">
+                                Google Pay
+                            </option>
+
+                            <option value="Paytm">
+                                Paytm
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- SCREENSHOT -->
+
+                    <div
+                        class="form-group"
+                        style="margin-top:18px;"
+                    >
+
+                        <label>
+                            Payment Screenshot /
+                            भुगतान स्क्रीनशॉट
+                        </label>
+
+                        <input
+                            type="file"
+                            name="paymentScreenshot"
+                            accept="
+                                image/jpeg,
+                                image/png,
+                                image/jpg,
+                                image/webp
+                            "
+                            required
+                        >
+
+                        <span class="help">
+
+                            Successful payment का
+                            screenshot upload करें।
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+
+                    Submit Fee Payment /
+                    शुल्क जमा करें
+
+                </button>
+
+
+
+                <div class="note">
+
+                    <strong>
+                        Note:
+                    </strong>
+
+                    <br>
+
+                    Payment submit करने के बाद
+                    UTR और screenshot verify किया जाएगा।
+
+                    <br>
+
+                    निर्धारित राशि से कम payment
+                    होने पर payment अमान्य माना जाएगा।
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     FRONTEND CALCULATION
+================================================== -->
+
+<script>
+
+    // Fixed monthly fee
+    const monthlyFee = 700;
+
+
+    // Elements
+    const feeMonth =
+        document.getElementById("feeMonth");
+
+    const feeDisplay =
+        document.getElementById("feeDisplay");
+
+    const fineDisplay =
+        document.getElementById("fineDisplay");
+
+    const totalDisplay =
+        document.getElementById("totalDisplay");
+
+    const qrAmount =
+        document.getElementById("qrAmount");
+
+
+    // Month select होने पर calculation
+    feeMonth.addEventListener(
+        "change",
+        function () {
+
+
+            // Month select नहीं किया
+            if (this.value === "") {
+
+                feeDisplay.textContent = "0";
+
+                fineDisplay.textContent = "₹0";
+
+                totalDisplay.textContent = "0";
+
+                qrAmount.textContent = "0";
+
+                return;
+            }
+
+
+            // आज की तारीख
+            const today =
+                new Date();
+
+
+            const currentDay =
+                today.getDate();
+
+
+            // 10 तारीख के बाद ₹100 fine
+            let fine = 0;
+
+
+            if (currentDay > 10) {
+
+                fine = 100;
+
+            }
+
+
+            // Total
+            const total =
+                monthlyFee + fine;
+
+
+            // Show fee
+            feeDisplay.textContent =
+                monthlyFee;
+
+
+            // Show fine
+            fineDisplay.textContent =
+                "₹" + fine;
+
+
+            // Show total
+            totalDisplay.textContent =
+                total;
+
+
+            // QR amount
+            qrAmount.textContent =
+                total;
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

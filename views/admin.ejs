@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Admin Panel | Success Mantra Coaching
+    </title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+            background: #f4f6f9;
+            color: #222;
+        }
+
+
+        .header {
+
+            background: #111;
+            color: white;
+
+            padding: 22px;
+
+            text-align: center;
+
+        }
+
+
+        .container {
+
+            width: 95%;
+            max-width: 1400px;
+
+            margin: 30px auto;
+
+        }
+
+
+        .section {
+
+            background: white;
+
+            padding: 22px;
+
+            margin-bottom: 30px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,.06);
+
+        }
+
+
+        .section h2 {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .table-wrapper {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+        }
+
+
+        table {
+
+            width: 100%;
+
+            min-width: 1100px;
+
+            border-collapse: collapse;
+
+        }
+
+
+        th,
+        td {
+
+            padding: 12px;
+
+            border-bottom:
+                1px solid #eee;
+
+            text-align: left;
+
+            vertical-align: top;
+
+        }
+
+
+        th {
+
+            background: #f5f5f5;
+
+            font-weight: bold;
+
+        }
+
+
+        tr:hover {
+
+            background: #fafafa;
+
+        }
+
+
+        .photo {
+
+            width: 75px;
+            height: 75px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            border: 1px solid #ddd;
+
+        }
+
+
+        .screenshot {
+
+            width: 100px;
+            height: 100px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            border: 1px solid #ddd;
+
+        }
+
+
+        .status {
+
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+        }
+
+
+        .pending {
+
+            background: #fff3cd;
+            color: #856404;
+
+        }
+
+
+        .approved {
+
+            background: #d4edda;
+            color: #155724;
+
+        }
+
+
+        .rejected {
+
+            background: #f8d7da;
+            color: #721c24;
+
+        }
+
+
+        .actions {
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        button {
+
+            border: none;
+
+            padding: 9px 14px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            color: white;
+
+            font-weight: bold;
+
+        }
+
+
+        .approve {
+
+            background: #198754;
+
+        }
+
+
+        .reject {
+
+            background: #dc3545;
+
+        }
+
+
+        .empty {
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: #777;
+
+        }
+
+
+        .detail {
+
+            line-height: 1.7;
+
+        }
+
+
+        .detail strong {
+
+            color: #111;
+
+        }
+
+
+        @media(max-width:700px) {
+
+            .container {
+
+                width: 98%;
+
+            }
+
+            .section {
+
+                padding: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+    <h1>
+        Success Mantra Coaching
+    </h1>
+
+    <p>
+        Admin Panel
+    </p>
+
+</div>
+
+
+
+<div class="container">
+
+
+    <!-- ========================================
+         REGISTRATION
+    ========================================= -->
+
+
+    <div class="section">
+
+        <h2>
+            Student Registrations
+        </h2>
+
+
+        <% if (students.length === 0) { %>
+
+            <div class="empty">
+                अभी कोई registration नहीं है।
+            </div>
+
+        <% } else { %>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Photo
+                        </th>
+
+                        <th>
+                            Student Details
+                        </th>
+
+                        <th>
+                            Parent Details
+                        </th>
+
+                        <th>
+                            School / Class
+                        </th>
+
+                        <th>
+                            Address
+                        </th>
+
+                        <th>
+                            Personal Details
+                        </th>
+
+                        <th>
+                            Contact
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                <% students.forEach(student => { %>
+
+
+                    <tr>
+
+
+                        <!-- PHOTO -->
+
+                        <td>
+
+                            <% if (student.studentPhoto) { %>
+
+                                <img
+                                    src="<%= student.studentPhoto %>"
+                                    class="photo"
+                                    alt="Student Photo"
+                                >
+
+                            <% } else { %>
+
+                                No Photo
+
+                            <% } %>
+
+                        </td>
+
+
+
+                        <!-- STUDENT -->
+
+                        <td class="detail">
+
+                            <strong>
+                                Name:
+                            </strong>
+
+                            <%= student.studentName %>
+
+                            <br>
+
+                            <strong>
+                                Registration:
+                            </strong>
+
+                            <%= student._id || "N/A" %>
+
+                        </td>
+
+
+
+                        <!-- PARENT -->
+
+                        <td class="detail">
+
+                            <strong>
+                                Father:
+                            </strong>
+
+                            <%= student.fatherName %>
+
+                            <br>
+
+                            <strong>
+                                Mother:
+                            </strong>
+
+                            <%= student.motherName %>
+
+                            <br>
+
+                            <strong>
+                                Guardian Occupation:
+                            </strong>
+
+                            <%= student.guardianOccupation || "N/A" %>
+
+                        </td>
+
+
+
+                        <!-- SCHOOL -->
+
+                        <td class="detail">
+
+                            <strong>
+                                School:
+                            </strong>
+
+                            <%= student.schoolCollege %>
+
+                            <br>
+
+                            <strong>
+                                Class:
+                            </strong>
+
+                            <%= student.className %>
+
+                        </td>
+
+
+
+                        <!-- ADDRESS -->
+
+                        <td class="detail">
+
+                            <strong>
+                                Address:
+                            </strong>
+
+                            <%= student.address %>
+
+                            <br>
+
+                            <strong>
+                                Ward:
+                            </strong>
+
+                            <%= student.wardNo || "N/A" %>
+
+                            <br>
+
+                            <strong>
+                                District:
+                            </strong>
+
+                            <%= student.district %>
+
+                            <br>
+
+                                <% if (student.
+paymentScreenshot) { %>
+
+                                <img
+                                    src="<%= student.
+paymentScreenshot %>"
+                                    class="photo"
+                                    alt="Student Photo"
+                                >
+
+                            <% } else { %>
+
+                                No Photo
+
+                            <% } %>
+
+                            <br>
+
+                            <strong>
+                                PIN:
+                            </strong>
+
+                            <%= student.pin || "N/A" %>
+
+                        </td>
+
+
+
+                        <!-- PERSONAL -->
+
+                        <td class="detail">
+
+                            <strong>
+                                DOB:
+                            </strong>
+
+                            <%= student.dob
+                                ? new Date(student.dob)
+                                    .toLocaleDateString("en-IN")
+                                : "N/A"
+                            %>
+
+                            <br>
+
+                            <strong>
+                                Gender:
+                            </strong>
+
+                            <%= student.gender %>
+
+                            <br>
+
+                            <strong>
+                                Caste:
+                            </strong>
+
+                            <%= student.caste || "N/A" %>
+
+                            <br>
+
+                            <strong>
+                                Aadhaar:
+                            </strong>
+
+                            <%= student.aadhaar || "N/A" %>
+
+                                     <br>
+
+                            <strong>
+                                UTR:
+                            </strong>
+
+                            <%= student.utrNumber || "N/A" %>
+
+                            <br>
+
+                                 <strong>
+                                Payment Method:
+                            </strong>
+
+                            <%= student.paymentMethod || "N/A" %>
+
+                            <br>
+
+                            <strong>
+                                Nationality:
+                            </strong>
+
+                            <%= student.nationality %>
+
+                        </td>
+
+
+
+                        <!-- CONTACT -->
+
+                        <td class="detail">
+
+                            <strong>
+                                Mobile:
+                            </strong>
+
+                            <%= student.mobile %>
+
+                            <br>
+
+                            <strong>
+                                Email:
+                            </strong>
+
+                            <%= student.email || "N/A" %>
+
+                            <br>
+
+                            <strong>
+                                Admission:
+                            </strong>
+
+                            <%= student.admissionDate
+                                ? new Date(student.admissionDate)
+                                    .toLocaleDateString("en-IN")
+                                : "N/A"
+                            %>
+
+                        </td>
+
+
+
+                        <!-- STATUS -->
+
+                        <td>
+
+                            <span
+                                class="status
+                                <%= (student.registrationStatus || 'Pending').toLowerCase() %>"
+                            >
+
+                                <%= student. paymentStatus || "Pending" %>
+
+                            </span>
+
+                        </td>
+
+
+
+                        <!-- ACTION -->
+
+                        <td>
+
+                            <div class="actions">
+
+
+                                <% if (
+                                    student.registrationStatus !==
+                                    "Approved"
+                                ) { %>
+
+
+                                    <form
+                                        action="/admin/registration/<%= student._id %>/approve"
+                                        method="POST"
+                                    >
+
+                                        <button
+                                            type="submit"
+                                            class="approve"
+                                        >
+
+                                            Accept
+
+                                        </button>
+
+                                    </form>
+
+
+                                <% } %>
+
+
+
+                                <% if (
+                                    student.registrationStatus !==
+                                    "Rejected"
+                                ) { %>
+
+
+                                    <form
+                                        action="/admin/registration/<%= student._id %>/reject"
+                                        method="POST"
+                                    >
+
+                                        <button
+                                            type="submit"
+                                            class="reject"
+                                        >
+
+                                            Reject
+
+                                        </button>
+
+                                    </form>
+
+
+                                <% } %>
+
+
+                            </div>
+
+                        </td>
+
+
+                    </tr>
+
+
+                <% }) %>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <% } %>
+
+    </div>
+
+
+
+    <!-- ========================================
+         FEE PAYMENTS
+    ========================================= -->
+
+
+    <div class="section">
+
+        <h2>
+            Monthly Fee Payments
+        </h2>
+
+
+        <% if (payments.length === 0) { %>
+
+            <div class="empty">
+                अभी कोई fee payment नहीं है।
+            </div>
+
+        <% } else { %>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Student
+                        </th>
+
+                        <th>
+                            Registration
+                        </th>
+
+                        <th>
+                            Class
+                        </th>
+
+                        <th>
+                            Month
+                        </th>
+
+                        <th>
+                            Fee
+                        </th>
+
+                        <th>
+                            Fine
+                        </th>
+
+                        <th>
+                            Total
+                        </th>
+
+                        <th>
+                            UTR
+                        </th>
+
+                        <th>
+                            Payment Method
+                        </th>
+
+                        <th>
+                            Screenshot
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                <% payments.forEach(payment => { %>
+
+
+                    <tr>
+
+
+                        <td class="detail">
+
+                            <strong>
+                                <%= payment.studentName %>
+                            </strong>
+
+                            <br>
+
+                            <%= payment.mobile %>
+
+                        </td>
+
+
+                        <td>
+
+                            <%= payment.registrationNumber %>
+
+                        </td>
+
+
+                        <td>
+
+                            <%= payment.className %>
+
+                        </td>
+
+
+                        <td>
+
+                            <%= payment.feeMonth %>
+
+                        </td>
+
+
+                        <td>
+
+                            ₹<%= payment.monthlyFee %>
+
+                        </td>
+
+
+                        <td>
+
+                            ₹<%= payment.lateFine %>
+
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                ₹<%= payment.expectedAmount %>
+                            </strong>
+
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                <%= payment.utrNumber %>
+                            </strong>
+
+                        </td>
+
+
+                        <td>
+
+                            <%= payment.paymentMethod %>
+
+                        </td>
+
+
+                        <td>
+
+                            <% if (payment.paymentScreenshot) { %>
+
+                                <a
+                                    href="<%= payment.paymentScreenshot %>"
+                                    target="_blank"
+                                >
+
+                                    <img
+                                        src="<%= payment.paymentScreenshot %>"
+                                        class="screenshot"
+                                        alt="Payment Screenshot"
+                                    >
+
+                                </a>
+
+                            <% } else { %>
+
+                                No Screenshot
+
+                            <% } %>
+
+                        </td>
+
+
+                        <td>
+
+                            <%= payment.paymentDate
+                                ? new Date(payment.paymentDate)
+                                    .toLocaleDateString("en-IN")
+                                : "-"
+                            %>
+
+                        </td>
+
+
+                        <td>
+
+                            <span
+                                class="status
+                                <%= (payment.paymentStatus || 'Pending').toLowerCase() %>"
+                            >
+
+                                <%= payment.paymentStatus || "Pending" %>
+
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="actions">
+
+
+                                <% if (
+                                    payment.paymentStatus !==
+                                    "Approved"
+                                ) { %>
+
+
+                                    <form
+                                        action="/admin/payment/<%= payment._id %>/approve"
+                                        method="POST"
+                                    >
+
+                                        <button
+                                            type="submit"
+                                            class="approve"
+                                        >
+
+                                            Accept
+
+                                        </button>
+
+                                    </form>
+
+
+                                <% } %>
+
+
+
+                                <% if (
+                                    payment.paymentStatus !==
+                                    "Rejected"
+                                ) { %>
+
+
+                                    <form
+                                        action="/admin/payment/<%= payment._id %>/reject"
+                                        method="POST"
+                                    >
+
+                                        <button
+                                            type="submit"
+                                            class="reject"
+                                        >
+
+                                            Reject
+
+                                        </button>
+
+                                    </form>
+
+
+                                <% } %>
+
+
+                            </div>
+
+                        </td>
+
+
+                    </tr>
+
+
+                <% }) %>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <% } %>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

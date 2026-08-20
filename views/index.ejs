@@ -1,0 +1,2372 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Success Mantra Coaching | सफलता की सही तैयारी</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .brand-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .brand-sub {
+            font-size: 10px;
+            color: #777777;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #3157d5;
+        }
+
+        .register-btn {
+            background: #3157d5;
+            color: white !important;
+            padding: 10px 15px;
+            border-radius: 9px;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            padding: 85px 0;
+            background: #f6f8ff;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 7px 13px;
+            background: #e9edff;
+            color: #3157d5;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 62px);
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #3157d5;
+        }
+
+        .hero p {
+            color: #687286;
+            max-width: 570px;
+            font-size: 16px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 19px;
+            border-radius: 9px;
+            border: 1px solid #dddddd;
+            background: white;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #3157d5;
+            border-color: #3157d5;
+            color: white;
+        }
+
+        .hero-image {
+            height: auto;
+            border-radius: 20px;
+            background-size: cover;
+        }
+
+        /* ================= COMMON ================= */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .light {
+            background: #f8f9fc;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 42px;
+        }
+
+        .section-label {
+            color: #3157d5;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #727b8d;
+            font-size: 14px;
+        }
+
+        /* ================= REGISTRATION ================= */
+
+        .registration-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border: 1px solid #e5e7ec;
+            border-radius: 18px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dfe2e8;
+            border-radius: 8px;
+            outline: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #3157d5;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        .registration-box .btn {
+            margin-top: 18px;
+        }
+
+        /* ================= CLASSES ================= */
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .class-card {
+            padding: 27px;
+            background: white;
+            border: 1px solid #e5e7ec;
+            border-radius: 16px;
+        }
+
+        .class-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e9edff;
+            color: #3157d5;
+            border-radius: 11px;
+            margin-bottom: 17px;
+            font-size: 21px;
+        }
+
+        .class-card h3 {
+            font-size: 19px;
+        }
+
+        .class-card p {
+            margin-top: 8px;
+            color: #727b8d;
+            font-size: 14px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 450px;
+            border-radius: 20px;
+        }
+
+        .about-content h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .about-content p {
+            color: #6d7688;
+            margin-bottom: 13px;
+            font-size: 15px;
+        }
+
+        .about-list {
+            margin-top: 20px;
+        }
+
+        .about-list div {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .about-list span {
+            color: #3157d5;
+            font-weight: bold;
+            margin-right: 7px;
+        }
+
+        /* ================= DIRECTOR ================= */
+
+        .director {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 30px;
+            align-items: center;
+            padding: 25px;
+            background: white;
+            border: 1px solid #e5e7ec;
+            border-radius: 18px;
+        }
+
+        .director img {
+            height: 340px;
+            border-radius: 15px;
+        }
+
+        .director h3 {
+            font-size: 24px;
+        }
+
+        .director-role {
+            color: #3157d5;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .director p {
+            margin-top: 14px;
+            color: #70798b;
+            font-size: 14px;
+        }
+
+        /* ================= TEACHERS ================= */
+
+        .teacher-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .teacher-card {
+            background: white;
+            border: 1px solid #e5e7ec;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .teacher-card img {
+            height: 280px;
+        }
+
+        .teacher-info {
+            padding: 18px;
+        }
+
+        .teacher-info h3 {
+            font-size: 18px;
+        }
+
+        .teacher-info span {
+            color: #3157d5;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* ================= STUDENT GALLERY ================= */
+
+        .gallery-scroll {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .gallery-scroll img {
+            flex: 0 0 300px;
+            height: 220px;
+            border-radius: 15px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        /* ================= ACHIEVEMENTS ================= */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .achievement-card {
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .achievement-card img {
+            height: 260px;
+            transition: 0.3s;
+        }
+
+        .achievement-card:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ================= RESULTS ================= */
+
+        .year-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .year-btn {
+            padding: 9px 18px;
+            border: 1px solid #dfe2e8;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .year-btn.active {
+            background: #3157d5;
+            color: white;
+            border-color: #3157d5;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .result-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .result-card img {
+            height: 250px;
+        }
+
+        .result-title {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 9px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-box {
+            padding: 28px;
+            background: white;
+            border: 1px solid #e5e7ec;
+            border-radius: 17px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #e9edff;
+            border-radius: 10px;
+        }
+
+        .contact-item small {
+            display: block;
+            color: #737c8e;
+            margin-top: 2px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 9px;
+            margin-top: 22px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dfe2e8;
+            border-radius: 10px;
+            color: #3157d5;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .map-box {
+            min-height: 330px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #eef1f7;
+            border-radius: 17px;
+        }
+
+        /* ================= RULES ================= */
+
+        .rules {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .rules ol {
+            padding-left: 22px;
+        }
+
+        .rules li {
+            color: #687286;
+            font-size: 14px;
+            margin-bottom: 11px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 40px 0 20px;
+            background: #172033;
+            color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-grid p,
+        .footer-grid a {
+            color: #aeb7c8;
+            font-size: 13px;
+        }
+
+        .footer-grid h4 {
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 7px;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: #929caf;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .class-grid,
+            .teacher-grid,
+            .achievement-grid,
+            .result-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .director {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 4%;
+                right: 4%;
+                background: white;
+                padding: 15px;
+                border: 1px solid #e5e7ec;
+                border-radius: 12px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-image {
+                height: 320px;
+            }
+
+            .section-heading h2,
+            .about-content h2 {
+                font-size: 32px;
+            }
+
+            .class-grid,
+            .teacher-grid,
+            .achievement-grid,
+            .result-grid,
+            .form-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            .registration-box {
+                padding: 20px;
+            }
+
+            .gallery-scroll img {
+                flex-basis: 270px;
+                height: 200px;
+            }
+
+            .about-image {
+                height: 330px;
+            }
+
+            .director img {
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="#home" class="logo-area">
+
+                    <div class="logo">
+                        <img src="/images/logo.jpeg" alt="" style="border-radius: 50%;">
+                    </div>
+
+                    <div>
+                        <div class="brand-name">
+                            Success Mantra Coaching
+                        </div>
+
+                        <div class="brand-sub">
+                            शिक्षा • मेहनत • सफलता
+                        </div>
+                    </div>
+
+                </a>
+
+                <button class="menu-btn" id="menuBtn">
+                    ☰
+                </button>
+
+                <div class="nav-links" id="navLinks">
+
+                    <a href="#about">
+                        About
+                    </a>
+
+                    <a href="/monthly">
+                        Fee Pay
+                    </a>
+
+                    <a href="#teachers">
+                        Teachers
+                    </a>
+
+                    <a href="#results">
+                        Results
+                    </a>
+
+                    <a href="#contact">
+                        Contact
+                    </a>
+
+                    <a href="#registration" class="register-btn">
+                        Registration
+                    </a>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main id="home">
+
+
+        <!-- ================= HERO ================= -->
+      <img src="/images/banner2.jpeg" alt="" width="100%">
+
+        <section class="hero">
+
+            <div class="container hero-grid">
+
+                <div>
+
+                    <span class="hero-tag">
+                        Admission Open • दाखिला शुरू • Session 2026–27
+                    </span>
+
+                    <h1>
+                        Learn Today.
+                        <br>
+                        <span>Achieve Tomorrow.</span>
+                    </h1>
+
+                    <p>
+                        बेहतर शिक्षा, सही मार्गदर्शन और उज्ज्वल भविष्य की ओर एक कदम।
+                        Experienced teachers के साथ quality education, regular practice
+                        और personal guidance.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#registration" class="btn btn-primary">
+                            Online Registration / ऑनलाइन नामांकन
+                        </a>
+
+                        <a href="#classes" class="btn">
+                            Explore Classes / Classes देखें
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <img
+                        src="/images/banner.jpeg"
+                        alt="Success Mantra Coaching Banner"
+                        class="hero-image"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REGISTRATION ================= -->
+
+        <section id="registration" class="light">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Admission • नामांकन
+                    </div>
+
+                    <h2>
+                        Online Registration
+                        <br>
+                        ऑनलाइन नामांकन
+                    </h2>
+
+                    <p>
+                        Coaching में admission लेने के लिए नीचे दिए गए
+                        form को भरें।
+                    </p>
+
+                </div>
+
+<form
+    action="/registration"
+    method="POST"
+    enctype="multipart/form-data"
+    class="registration-box"
+>
+
+    <div class="form-grid">
+
+        <!-- ================= STUDENT DETAILS ================= -->
+
+        <!-- Student Name -->
+        <div class="form-group">
+            <label>Name / विद्यार्थी का नाम</label>
+
+            <input
+                type="text"
+                name="studentName"
+                placeholder="Enter Student Name / विद्यार्थी का नाम"
+                required
+            >
+        </div>
+
+
+        <!-- Father's Name -->
+        <div class="form-group">
+            <label>Father's Name / पिता का नाम</label>
+
+            <input
+                type="text"
+                name="fatherName"
+                placeholder="Enter Father's Name / पिता का नाम"
+                required
+            >
+        </div>
+
+
+        <!-- Mother's Name -->
+        <div class="form-group">
+            <label>Mother's Name / माता का नाम</label>
+
+            <input
+                type="text"
+                name="motherName"
+                placeholder="Enter Mother's Name / माता का नाम"
+                required
+            >
+        </div>
+
+
+        <!-- School / College -->
+        <div class="form-group">
+            <label>
+                School / College / विद्यालय / कॉलेज
+            </label>
+
+            <input
+                type="text"
+                name="schoolCollege"
+                placeholder="Enter School / College"
+                required
+            >
+        </div>
+
+
+        <!-- Class -->
+        <div class="form-group">
+            <label>Class / कक्षा</label>
+
+            <select name="className" required>
+
+                <option value="">
+                    Select Class / कक्षा चुनें
+                </option>
+
+                  <option value="Class 7">
+                    Class 7
+                </option>
+
+                  <option value="Class 8">
+                    Class 8
+                </option>
+
+
+                <option value="Class 9">
+                    Class 9
+                </option>
+
+                <option value="Class 10">
+                    Class 10
+                </option>
+
+                <option value="Class 11">
+                    Class 11
+                </option>
+
+                <option value="Class 12">
+                    Class 12
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+        </div>
+
+
+        <!-- Address -->
+        <div class="form-group full">
+
+            <label>
+                Address / पता
+            </label>
+
+            <textarea
+                name="address"
+                placeholder="Enter Full Address / पूरा पता लिखें"
+                rows="3"
+                required
+            ></textarea>
+
+        </div>
+
+
+        <!-- Ward Number -->
+        <div class="form-group">
+
+            <label>
+                Ward No / वार्ड नंबर
+            </label>
+
+            <input
+                type="text"
+                name="wardNo"
+                placeholder="Enter Ward Number / वार्ड नंबर"
+            >
+
+        </div>
+
+
+        <!-- District -->
+        <div class="form-group">
+
+            <label>
+                District / जिला
+            </label>
+
+            <input
+                type="text"
+                name="district"
+                placeholder="Enter District / जिला"
+                required
+            >
+
+        </div>
+
+
+        <!-- PIN -->
+        <div class="form-group">
+
+            <label>
+                PIN / पिन कोड
+            </label>
+
+            <input
+                type="text"
+                name="pin"
+                placeholder="Enter 6 Digit PIN / पिन कोड"
+                maxlength="6"
+                pattern="[0-9]{6}"
+            >
+
+        </div>
+
+
+        <!-- Date of Birth -->
+        <div class="form-group">
+
+            <label>
+                D.O.B / जन्म तिथि
+            </label>
+
+            <input
+                type="date"
+                name="dob"
+                required
+            >
+
+        </div>
+
+
+        <!-- Caste -->
+        <div class="form-group">
+
+            <label>
+                Caste / जाति
+            </label>
+
+            <select name="caste">
+
+                <option value="">
+                    Select Caste / जाति चुनें
+                </option>
+
+                <option value="General">
+                    General
+                </option>
+
+                <option value="OBC">
+                    OBC
+                </option>
+
+                <option value="EBC">
+                    EBC
+                </option>
+
+                <option value="SC">
+                    SC
+                </option>
+
+                <option value="ST">
+                    ST
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Gender -->
+        <div class="form-group">
+
+            <label>
+                Gender / लिंग
+            </label>
+
+            <select name="gender" required>
+
+                <option value="">
+                    Select Gender / लिंग चुनें
+                </option>
+
+                <option value="Male">
+                    Male / पुरुष
+                </option>
+
+                <option value="Female">
+                    Female / महिला
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Aadhaar -->
+        <div class="form-group">
+
+            <label>
+                Aadhaar No / आधार नंबर
+            </label>
+
+            <input
+                type="text"
+                name="aadhaar"
+                placeholder="Enter Aadhaar Number / आधार नंबर"
+                maxlength="12"
+                pattern="[0-9]{12}"
+            >
+
+        </div>
+
+
+        <!-- Email -->
+        <div class="form-group">
+
+            <label>
+                Email ID / ईमेल आईडी
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter Email ID / ईमेल आईडी"
+            >
+
+        </div>
+
+
+        <!-- Guardian Occupation -->
+        <div class="form-group">
+
+            <label>
+                Occupation Guardian / अभिभावक का व्यवसाय
+            </label>
+
+            <input
+                type="text"
+                name="guardianOccupation"
+                placeholder="Enter Guardian Occupation / व्यवसाय"
+            >
+
+        </div>
+
+
+        <!-- Nationality -->
+        <div class="form-group">
+
+            <label>
+                Nationality / राष्ट्रीयता
+            </label>
+
+            <input
+                type="text"
+                name="nationality"
+                value="Indian"
+                placeholder="Enter Nationality / राष्ट्रीयता"
+            >
+
+        </div>
+
+
+        <!-- Mobile -->
+        <div class="form-group">
+
+            <label>
+                Mob No / मोबाइल नंबर
+            </label>
+
+            <input
+                type="tel"
+                name="mobile"
+                placeholder="Enter Mobile Number / मोबाइल नंबर"
+                maxlength="10"
+                pattern="[6-9][0-9]{9}"
+                required
+            >
+
+        </div>
+
+
+        <!-- Admission Date -->
+        <div class="form-group">
+
+            <label>
+                Date / प्रवेश की तारीख
+            </label>
+
+            <input
+                type="date"
+                name="admissionDate"
+            >
+
+        </div>
+
+
+        <!-- ================= PHOTO ================= -->
+
+        <div class="form-group">
+
+            <label>
+                Student Photo / विद्यार्थी का फोटो
+            </label>
+
+            <input
+                type="file"
+                name="studentPhoto"
+                accept="image/png,image/jpeg,image/jpg,image/webp"
+            >
+
+        </div>
+
+
+        <!-- ================= PAYMENT ================= -->
+
+        <div class="form-group full">
+
+            <div class="payment-section">
+
+                <h3 class="payment-title">
+                    Payment Details / भुगतान विवरण
+                </h3>
+
+
+                <p class="payment-note">
+                    नीचे दिए गए QR Code को Scan करके Payment करें।
+                    Payment करने के बाद UTR Number और Payment Screenshot
+                    जरूर upload करें।
+                </p>
+
+
+                <!-- QR CODE -->
+
+                <div class="qr-payment-box">
+
+                    <h4>
+                        Scan & Pay / स्कैन करके भुगतान करें
+                    </h4>
+
+                    <img
+                    style="width: 150px;"
+                        src="/images/pay.jpeg"
+                        alt="Payment QR Code"
+                        class="payment-qr"
+                    >
+
+                    <p class="upi-text">
+                        UPI से Payment करें
+                    </p>
+
+                </div>
+
+
+                <!-- PAYMENT AMOUNT -->
+
+               
+
+                <!-- UTR NUMBER -->
+
+                <div class="form-group">
+
+                    <label>
+                        UTR / Transaction Number
+                    </label>
+
+                    <input
+                        type="text"
+                        name="utrNumber"
+                        placeholder="Enter UTR / Transaction Number"
+                        maxlength="50"
+                        required
+                    >
+
+                    <small class="input-help">
+                        Payment के बाद प्राप्त UTR / Transaction Number डालें।
+                    </small>
+
+                </div>
+
+
+                <!-- PAYMENT SCREENSHOT -->
+
+                <div class="form-group">
+
+                    <label>
+                        Payment Screenshot / भुगतान का स्क्रीनशॉट
+                    </label>
+
+                    <input
+                        type="file"
+                        name="paymentScreenshot"
+                        accept="image/png,image/jpeg,image/jpg,image/webp"
+                        required
+                    >
+
+                    <small class="input-help">
+                        सफल Payment का Screenshot upload करें।
+                    </small>
+
+                </div>
+
+
+                <!-- PAYMENT METHOD -->
+
+                <div class="form-group">
+
+                    <label>
+                        Payment Method / भुगतान का माध्यम
+                    </label>
+
+                    <select
+                        name="paymentMethod"
+                        required
+                    >
+
+                        <option value="">
+                            Select Payment Method / भुगतान माध्यम चुनें
+                        </option>
+
+                        <option value="UPI">
+                            UPI
+                        </option>
+
+                        <option value="PhonePe">
+                            PhonePe
+                        </option>
+
+                        <option value="Google Pay">
+                            Google Pay
+                        </option>
+
+                        <option value="Paytm">
+                            Paytm
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= DECLARATION ================= -->
+
+        <div class="form-group full">
+
+            <label>
+                Declaration / घोषणा
+            </label>
+
+            <div class="declaration-box">
+
+                <label class="checkbox-label">
+
+                    <input
+                        type="checkbox"
+                        name="declaration"
+                        value="accepted"
+                        required
+                    >
+
+                    <span>
+
+                        I hereby declare that all the particulars
+                        provided by me are true and correct to the
+                        best of my knowledge.
+
+                        <br>
+
+                        मैं घोषणा करता/करती हूँ कि मेरे द्वारा दी गई
+                        सभी जानकारी मेरी जानकारी के अनुसार सत्य एवं सही है।
+
+                    </span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SUBMIT ================= -->
+
+    <button
+        type="submit"
+        class="btn btn-primary"
+    >
+        Submit Registration / नामांकन करें
+    </button>
+
+</form>
+            </div>
+
+        </section>
+
+
+        <!-- ================= CLASSES ================= -->
+
+        <section id="classes">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Academics • शिक्षा
+                    </div>
+
+                    <h2>
+                        हमारी Classes • Our Classes
+                    </h2>
+
+                    <p>
+                        Concept-based learning, regular practice और
+                        बेहतर preparation.
+                    </p>
+
+                </div>
+
+
+                <div class="class-grid">
+
+
+                    <div class="class-card">
+
+                        <div class="class-icon">
+                            📚
+                        </div>
+
+                        <h3>
+                            Class 7, 8, 9 & 10 (BSEB)
+                        </h3>
+
+                        <p>
+                            Mathematics, Science, English (All Subjects) और strong
+                            academic foundation पर focus.
+                        </p>
+
+                    </div>
+
+
+                    <div class="class-card">
+
+                        <div class="class-icon">
+                            🎓
+                        </div>
+
+                        <h3>
+                            Class 11 & 12 (Arts All Subjects)
+                        </h3>
+
+                        <p>
+                            Board exam preparation, regular tests,
+                            revision और doubt solving.
+                        </p>
+
+                    </div>
+
+
+                    <div class="class-card">
+
+                        <div class="class-icon">
+                            📖
+                        </div>
+
+                        <h3>
+                            Computers All Courses
+                        </h3>
+
+                        <p>
+                            ADCA, DCA, DMR,BCA, MCA, MBA, BA, BSc,Typing, programming Etc.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about" class="light">
+
+            <div class="container about-grid">
+
+                <img
+                    src="/images/student.jpeg"
+                    alt="Coaching Students"
+                    class="about-image"
+                >
+
+
+                <div class="about-content">
+
+                    <div class="section-label">
+                        About Us • हमारे बारे में
+                    </div>
+
+                    <h2>
+                        Education with Purpose.
+                    </h2>
+
+                    <p>
+                        Success Mantra Coaching का उद्देश्य students को
+                        quality education और सही guidance देना है।
+                    </p>
+
+                    <p>
+                        हम सिर्फ syllabus पूरा करने पर नहीं,
+                        बल्कि concepts clear करने, confidence बढ़ाने
+                        और बेहतर performance पर focus करते हैं।
+                    </p>
+
+
+                    <div class="about-list">
+
+                        <div>
+                            <span>✓</span>
+                            Experienced & Dedicated Teachers
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Regular Tests & Assessment
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Doubt Solving Support
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Student-Focused Learning
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DIRECTOR ================= -->
+
+        <section id="director">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Leadership • नेतृत्व
+                    </div>
+
+                    <h2>
+                        Director की बात
+                    </h2>
+
+                </div>
+
+
+                <div class="director">
+
+                    <img
+                        src="/images/director.jpeg"
+                        alt="Director"
+                        style="height: 460px;"
+                    >
+
+                    <div>
+
+                        <h3>
+                            Sujeet Sir
+                        </h3>
+
+                        <div class="director-role">
+                            Director & Academic Head
+                        </div>
+
+                        <p>
+                            हमारा उद्देश्य हर student को सही environment,
+                            सही guidance और बेहतर learning experience देना है।
+                        </p>
+
+                        <p>
+                            हम मानते हैं कि सफलता केवल marks से नहीं,
+                            बल्कि strong concepts, discipline और confidence
+                            से मिलती है।
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TEACHERS ================= -->
+
+        <section id="teachers" class="light">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Faculty • शिक्षकगण
+                    </div>
+
+                    <h2>
+                        हमारे Teachers • Our Faculty
+                    </h2>
+
+                    <p>
+                        Experienced और dedicated teachers जो students
+                        को बेहतर सीखने में मदद करते हैं।
+                    </p>
+
+                </div>
+
+
+                <div class="teacher-grid" style="display:flex; justify-content: space-around;">
+
+
+                    <div class="teacher-card">
+
+                        <img
+                            src="/images/bkSir.jpeg"
+                            alt="Teacher 1"
+                        >
+
+                        <div class="teacher-info">
+
+                            <h3>
+                                B.K. Sir
+                            </h3>
+
+                            <span>
+                               Graduation LLB
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                 
+
+                    <div class="teacher-card">
+
+                        <img
+                            src="/images/gaurav.jpeg"
+                            alt="Teacher 3"
+                        >
+
+                        <div class="teacher-info">
+
+                            <h3>
+                                Gaurav Sir
+                            </h3>
+
+                            <span>
+                                Computer Technical Course
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STUDENTS ================= -->
+
+        <section id="students">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Gallery • झलकियाँ
+                    </div>
+
+                    <h2>
+                        Students की झलकियाँ
+                    </h2>
+
+                    <p>
+                        हमारे students के कुछ memorable moments.
+                        Left-right scroll करके photos देखें।
+                    </p>
+
+                </div>
+
+
+                <div class="gallery-scroll">
+
+                    <img
+                        src="/images/s1.jpeg"
+                        alt="Student"
+                    >
+
+                    <img
+                        src="/images/s2.jpeg"
+                        alt="Student"
+                    >
+
+                    <img
+                        src="/images/s3.jpeg"
+                        alt="Student"
+                    >
+
+                    <img
+                        src="/images/s4.jpeg"
+                        alt="Student"
+                    >
+
+                    <img
+                        src="/images/s5.jpeg"
+                        alt="Student"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACHIEVEMENTS ================= -->
+
+        <section id="achievements" class="light">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Achievements • उपलब्धियाँ
+                    </div>
+
+                    <h2>
+                        हमारी उपलब्धियाँ
+                    </h2>
+
+                    <p>
+                        Students की मेहनत और सफलता के कुछ खास पल।
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-grid">
+
+                    <div class="achievement-card">
+                        <img
+                            src="/images/a1.jpeg"
+                            alt="Achievement"
+                        >
+                    </div>
+
+                    <div class="achievement-card">
+                        <img
+                            src="/images/a2.jpeg"
+                            alt="Achievement"
+                        >
+                    </div>
+
+                    <div class="achievement-card">
+                        <img
+                            src="/images/a3.jpeg"
+                            alt="Achievement"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESULTS ================= -->
+
+        <section id="results">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Results • परिणाम
+                    </div>
+
+                    <h2>
+                        हमारे Results
+                    </h2>
+
+                    <p>
+                        मेहनत, सही guidance और लगातार practice का परिणाम।
+                    </p>
+
+                </div>
+
+
+                <div class="year-buttons">
+
+                    <button
+                        class="year-btn active"
+                        data-year="2026"
+                    >
+                        2026 12th Result
+                    </button>
+
+                    <button
+                        class="year-btn"
+                        data-year="2025"
+                    >
+                        2026 10th Result
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="result-grid"
+                    id="resultGrid"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact" class="light">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Contact • संपर्क
+                    </div>
+
+                    <h2>
+                        हमसे संपर्क करें
+                    </h2>
+
+                    <p>
+                        Admission और किसी भी जानकारी के लिए
+                        हमसे संपर्क करें।
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+
+                    <div class="contact-box">
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                📍
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Address / पता
+                                </strong>
+
+                                <small>
+                                    Gandhi Nagar Ramna Ward 18, Bihar, India
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                📞
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Mobile / मोबाइल
+                                </strong>
+
+                                <small>
+                                    +91 9931873210
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                💬
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    WhatsApp / व्हाट्सऐप
+                                </strong>
+
+                                <small>
+                                    +91 9931873210
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                ✉
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Email / ईमेल
+                                </strong>
+
+                                <small>
+                                    successmantramth@gmail.com
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="social-links">
+
+                            <a href="https://instagram.com/success_mantra_coaching61" target="_blank">
+                                IG
+                            </a>
+
+                            <a href="https://youtube.com/@sujeetsir07" target="_blank">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                  
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RULES ================= -->
+
+        <section id="rules">
+
+            <div class="container rules">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Important • महत्वपूर्ण
+                    </div>
+
+                    <h2>
+                        नियम एवं दिशानिर्देश
+                    </h2>
+
+                    <p>
+                        सभी students से institute के rules follow करने
+                        की अपेक्षा की जाती है।
+                    </p>
+
+                </div>
+
+
+                <ol>
+
+                    <li>
+                        सभी students regular classes attend करें।
+                    </li>
+
+                    <li>
+                        Students को समय पर class में पहुँचना अनिवार्य है।
+                    </li>
+
+                    <li>
+                        Teachers और fellow students के साथ respectful
+                        behaviour रखें।
+                    </li>
+
+                    <li>
+                        सभी students required study material साथ लेकर आएँ।
+                    </li>
+
+                    <li>
+                        Classroom में mobile phone का उपयोग institute
+                        के rules के अनुसार करें।
+                    </li>
+
+                    <li>
+                        Students institute के academic instructions
+                        का पालन करें।
+                    </li>
+
+                    <li>
+                        Institute आवश्यकता के अनुसार schedule या
+                        rules में बदलाव कर सकता है।
+                    </li>
+
+                </ol>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div>
+
+                    <div class="logo-area">
+
+                        <div class="logo">
+                            <img src="/images/logo.jpeg" alt="">
+                        </div>
+
+                        <div>
+
+                            <div class="brand-name">
+                                Success Mantra Coaching
+                            </div>
+
+                            <div class="brand-sub">
+                                शिक्षा • मेहनत • सफलता
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <p style="margin-top:15px;">
+                        बेहतर शिक्षा, सही मार्गदर्शन और उज्ज्वल भविष्य
+                        की ओर एक कदम।
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Quick Links
+                    </h4>
+
+                    <div class="footer-links">
+
+                        <a href="#about">
+                            About / हमारे बारे में
+                        </a>
+
+                        <a href="#classes">
+                            Classes / कक्षाएँ
+                        </a>
+
+                        <a href="#teachers">
+                            Teachers / शिक्षक
+                        </a>
+
+                        <a href="#results">
+                            Results / परिणाम
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Connect With Us
+                    </h4>
+
+                    <div class="footer-links">
+
+                        <a href="#registration">
+                            Registration / नामांकन
+                        </a>
+
+                        <a href="#contact">
+                            Contact / संपर्क
+                        </a>
+
+                        <a href="#">
+                            Instagram
+                        </a>
+
+                        <a href="#">
+                            YouTube
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="copyright">
+
+                © 2026 Success Mantra Coaching.
+                All Rights Reserved.
+                <br>
+                शिक्षा • मेहनत • सफलता
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        /* ================= MOBILE MENU ================= */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("show");
+
+        });
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function (link) {
+
+                link.addEventListener("click", function () {
+
+                    navLinks.classList.remove("show");
+
+                });
+
+            });
+
+
+        /* ================= RESULTS ================= */
+
+        const results = {
+
+            2026: [
+
+                {
+                    image: "/images/gudiya.jpeg",
+                    title: "Gudiya Kumari • 403 marks "
+                },
+
+                {
+                    image: "/images/jiya.jpeg",
+                    title: "Jiya Kumari • 386 marks"
+                },
+
+                {
+                    image: "/images/sanya.jpeg",
+                    title: "Sanya Kumari • 366 marks"
+                }
+
+            ],
+
+            2025: [
+
+                {
+                    image: "/images/jiya1.jpeg",
+                    title: "2025 • 405 marks"
+                },
+
+                {
+                    image: "/images/ananya.jpeg",
+                    title: "2025 • 401 marks"
+                },
+
+                {
+                    image: "/images/ayush.jpeg",
+                    title: "2025 • 399 marks"
+                }
+
+            ]
+
+        };
+
+
+        const resultGrid =
+            document.getElementById("resultGrid");
+
+
+        function showResults(year) {
+
+            resultGrid.innerHTML = "";
+
+            results[year].forEach(function (result) {
+
+                const card =
+                    document.createElement("div");
+
+                card.className = "result-card";
+
+                card.innerHTML = `
+                    <img
+                        src="${result.image}"
+                        alt="${result.title}"
+                    >
+
+                    <span class="result-title">
+                        ${result.title}
+                    </span>
+                `;
+
+                resultGrid.appendChild(card);
+
+            });
+
+        }
+
+
+        document
+            .querySelectorAll(".year-btn")
+            .forEach(function (button) {
+
+                button.addEventListener("click", function () {
+
+                    document
+                        .querySelectorAll(".year-btn")
+                        .forEach(function (btn) {
+
+                            btn.classList.remove("active");
+
+                        });
+
+                    button.classList.add("active");
+
+                    showResults(button.dataset.year);
+
+                });
+
+            });
+
+
+        showResults(2026);
+
+    </script>
+
+</body>
+
+</html>
