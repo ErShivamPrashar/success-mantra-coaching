@@ -1,6 +1,10 @@
 const express = require("express");
 const multer = require("multer");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 const path = require("path");
 const fs = require("fs");
 require("dotenv").config();
@@ -339,10 +343,10 @@ router.post(
             // ADMIN EMAIL
             // =================================
 
-            await transporter.sendMail({
+            await resend.emails.send({
 
                   from:
-                      `"Success Mantra Coaching" <${process.env.ADMIN_EMAIL}>`,
+                  "Success Mantra Coaching <onboarding@resend.dev>",
 
                     to:
                        email,
@@ -467,9 +471,9 @@ router.post(
 
             if (email) {
 
-                await transporter.sendMail({
+                await resend.emails.send({
   from:
-           `"Success Mantra Coaching" <${process.env.ADMIN_EMAIL}>`,
+        "Success Mantra Coaching <onboarding@resend.dev>",
 
                     to:
                         email,

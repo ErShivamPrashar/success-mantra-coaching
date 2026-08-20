@@ -2,8 +2,10 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
+const resend = new Resend(process.env.RESEND_API_KEY);
 const FeePayment = require("../model/fee");
 const Student = require("../model/student");
 
@@ -350,10 +352,10 @@ await payment.save();
             // ADMIN EMAIL
             // =============================================
 
-            await transporter.sendMail({
+            await resend.emails.send({
 
                  from:
-                         `"Success Mantra Coaching" <${process.env.ADMIN_EMAIL}>`,
+                       "Success Mantra Coaching <onboarding@resend.dev>",
 
                     to:
                        email,

@@ -1,5 +1,9 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
+
+const { Resend } = require("resend");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const Student = require("../model/student");
 const FeePayment = require("../model/fee");
@@ -132,9 +136,9 @@ router.post(
             // Email
             if (student.email) {
 
-                await transporter.sendMail({
+                await resend.emails.send({
 
-                    from: `"Success Mantra Coaching" <${process.env.ADMIN_EMAIL}>`,
+                    from: "Success Mantra Coaching <onboarding@resend.dev>",
 
                     to: student.email,
 
@@ -241,9 +245,9 @@ router.post(
             // Student ko rejection email
             if (student.email) {
 
-                await transporter.sendMail({
+                await resend.emails.send({
 
-                    from:    `"Success Mantra Coaching" <${process.env.ADMIN_EMAIL}>`,
+                    from:  "Success Mantra Coaching <onboarding@resend.dev>",
 
                     to:student.email,
 
@@ -359,10 +363,10 @@ router.post(
                 student.email
             ) {
 
-                await transporter.sendMail({
+                await resend.emails.send({
 
                     from:
-                    `"Success Mantra Coaching" <${process.env.ADMIN_EMAIL}>`,
+                   "Success Mantra Coaching <onboarding@resend.dev>",
 
                     to:
                      student.email,
@@ -508,10 +512,10 @@ router.post(
                 student.email
             ) {
 
-                await transporter.sendMail({
+                await resend.emails.send({
 
                     from:
-                         `"Success Mantra Coaching" <${process.env.ADMIN_EMAIL}>`,
+                        "Success Mantra Coaching <onboarding@resend.dev>",
 
                     to:
                         student.email,
